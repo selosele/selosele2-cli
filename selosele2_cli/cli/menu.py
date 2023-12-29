@@ -17,3 +17,11 @@ def print_main_title():
       )
     )
   click.echo('\n')
+
+def print_select_menu():
+  """
+  메뉴 선택 문구를 출력한다.
+  """
+  click.echo('=====================================')
+  click.echo('메뉴 선택')
+  click.echo('=====================================')
