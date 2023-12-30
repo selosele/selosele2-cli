@@ -26,4 +26,5 @@ def signin():
 
 # 로그아웃
 def signout():
-  pass
+  config.access_token = ''
+  config.refresh_token = ''

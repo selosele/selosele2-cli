@@ -23,13 +23,6 @@ def isAuthenticated() -> bool:
   """
   return config.access_token != ''
 
-def logout() -> None:
-  r"""
-  로그아웃을 한다.
-  """
-  config.access_token = ''
-  config.refresh_token = ''
-
 def go_to_main() -> None:
   r"""
   메인 화면으로 돌아간다.

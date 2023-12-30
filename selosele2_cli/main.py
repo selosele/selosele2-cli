@@ -1,7 +1,6 @@
 import click
 from simple_term_menu import TerminalMenu
 from selosele2_cli.cli.utils import isAuthenticated
-from selosele2_cli.cli.utils import logout
 import selosele2_cli.cli.menu as menu
 import selosele2_cli.cli.auth as auth
 import selosele2_cli.cli.list_post as list_post
@@ -40,7 +39,7 @@ def main():
     # 프로그램 종료
     if menu_entry_index == 2:
       menu_exited = True
-      logout()
+      auth.signout()
       break
 
 if __name__ == '__main__':
