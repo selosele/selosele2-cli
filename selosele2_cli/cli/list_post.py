@@ -23,13 +23,12 @@ def main():
     if response.status_code == 200:
       posts = response.json()
       for i, post in enumerate(posts[0]):
-        print(str(post['regDate']))
         # reg_date = datetime.strftime(str(post['regDate']), '%Y-%m-%dT%H:%M:%S.%fZ')
-        # reg_date_f = reg_date.strftime("%Y-%m-%d")
-        post_list.append(f"{str(i+1)} {list_separator()}{menu.print_post_tmp_text(post['tmpYn'])}{post['title']} {list_separator()}")
+        # reg_date_f = reg_date.strftime('%Y-%m-%d')
+        post_list.append(f"{str(i+1)} {list_separator()}{menu.print_post_tmp_text(post['tmpYn'])}{post['title']} {list_separator()} {str(post['regDate'])}")
       
       options = post_list
-      terminal_menu = TerminalMenu(options)
+      terminal_menu = TerminalMenu(options, title=menu.print_list_post_title())
       menu_entry_index = terminal_menu.show()
       
       break

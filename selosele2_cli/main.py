@@ -3,7 +3,7 @@ from simple_term_menu import TerminalMenu
 from selosele2_cli.cli.utils import isAuthenticated
 from selosele2_cli.cli.utils import logout
 import selosele2_cli.cli.menu as menu
-import selosele2_cli.cli.signin as signin
+import selosele2_cli.cli.auth as auth
 import selosele2_cli.cli.list_post as list_post
 import selosele2_cli.cli.lang_config as lang_config
 
@@ -29,7 +29,7 @@ def main():
         list_post.main()
       # 안 되어 있으면 로그인 화면을 출력한다.
       else:
-        signin.main()
+        auth.signin()
       break
     
     # 언어설정

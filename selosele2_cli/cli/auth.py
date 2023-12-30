@@ -5,8 +5,9 @@ from selosele2_cli.cli.utils import go_to_main
 import selosele2_cli.cli.config as config
 import selosele2_cli.cli.menu as menu
 
+# 로그인
 @click.command()
-def main():
+def signin():
   menu_exited = False
   
   while not menu_exited:
@@ -22,3 +23,7 @@ def main():
       go_to_main()
     else:
       print(menu.print_signin_fail_text())
+
+# 로그아웃
+def signout():
+  pass

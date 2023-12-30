@@ -94,6 +94,15 @@ def print_signin_fail_text() -> str:
     return '로그인에 실패했습니다.'
   elif config.lang_code == 'en':
     return 'Faild to sign in.'
+  
+def print_list_post_title() -> str:
+  r"""
+  포스트 목록 타이틀을 출력한다.
+  """
+  if config.lang_code == 'ko':
+    return '포스트 목록'
+  elif config.lang_code == 'en':
+    return 'Posts'
 
 def print_post_tmp_text(tmpYn: str) -> str:
   r"""
