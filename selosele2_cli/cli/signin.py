@@ -21,4 +21,4 @@ def main():
       config.refresh_token = response.json()['refreshToken']
       go_to_main()
     else:
-      print(response.json()['message'][0])
+      print(menu.print_signin_fail_text())
