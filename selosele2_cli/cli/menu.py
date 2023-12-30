@@ -39,7 +39,7 @@ def print_footer() -> None:
 
 def print_select_menu() -> None:
   r"""
-  메뉴선택 문구를 출력한다.
+  메뉴선택 텍스트를 출력한다.
   """
   click.echo('=====================================')
   if config.lang_code == 'ko':
@@ -58,8 +58,7 @@ def print_main() -> list[str]:
     if isAuthenticated():
       return ['포스트 목록', '언어설정', '프로그램 종료']
     # 비로그인 상태일 경우
-    else:
-      return ['로그인', '언어설정', '프로그램 종료']
+    return ['로그인', '언어설정', '프로그램 종료']
       
   elif config.lang_code == 'en':
     
@@ -67,8 +66,7 @@ def print_main() -> list[str]:
     if isAuthenticated():
       return ['Get the posts', 'Language Settings', 'Quit']
     # 비로그인 상태일 경우
-    else:
-      return ['Sign-in', 'Language Settings', 'Quit']
+    return ['Sign-in', 'Language Settings', 'Quit']
 
 def print_lang_config() -> list[str]:
   r"""
@@ -87,3 +85,25 @@ def print_signin_text() -> dict[str, str]:
     return { 'user_id': '아이디', 'user_pw': '비밀번호' }
   elif config.lang_code == 'en':
     return { 'user_id': 'ID', 'user_pw': 'Password' }
+
+def print_signin_fail_text() -> str:
+  r"""
+  로그인 실패 메시지를 출력한다.
+  """
+  if config.lang_code == 'ko':
+    return '로그인에 실패했습니다.'
+  elif config.lang_code == 'en':
+    return 'Faild to sign in.'
+
+def print_post_tmp_text(tmpYn: str) -> str:
+  r"""
+  임시저장 포스트임을 알려주는 텍스트를 출력한다.
+  """
+  if config.lang_code == 'ko':
+    if tmpYn == 'Y':
+      return ' [임시저장] '
+    return ''
+  elif config.lang_code == 'en':
+    if tmpYn == 'Y':
+      return ' [temporary] '
+    return ''

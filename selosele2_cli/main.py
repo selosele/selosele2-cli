@@ -1,8 +1,10 @@
 import click
 from simple_term_menu import TerminalMenu
+from selosele2_cli.cli.utils import isAuthenticated
+from selosele2_cli.cli.utils import logout
 import selosele2_cli.cli.menu as menu
 import selosele2_cli.cli.signin as signin
-import selosele2_cli.cli.config as config
+import selosele2_cli.cli.list_post as list_post
 import selosele2_cli.cli.lang_config as lang_config
 
 @click.command()
@@ -19,9 +21,15 @@ def main():
     terminal_menu = TerminalMenu(options)
     menu_entry_index = terminal_menu.show()
     
-    # 로그인
+    # 로그인 or 포스트 목록
     if menu_entry_index == 0:
-      signin.main()
+      
+      # 로그인이 되어 있으면 포스트 목록 화면을 출력하고
+      if isAuthenticated():
+        list_post.main()
+      # 안 되어 있으면 로그인 화면을 출력한다.
+      else:
+        signin.main()
       break
     
     # 언어설정
@@ -32,6 +40,7 @@ def main():
     # 프로그램 종료
     if menu_entry_index == 2:
       menu_exited = True
+      logout()
       break
 
 if __name__ == '__main__':
