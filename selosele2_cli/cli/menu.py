@@ -20,33 +20,27 @@ def print_main_title() -> None:
     )
   click.echo('\n')
 
-def print_footer() -> None:
+def choose_menu_text() -> str:
   r"""
-  footer 메뉴를 출력한다.
+  메뉴선택 텍스트를 반환한다.
   """
   if config.lang_code == 'ko':
-    click.echo(
-      f"""
-      Q: 프로그램 종료 | W: 로그아웃
-      """
-    )
+    return '메뉴 선택'
   elif config.lang_code == 'en':
-    click.echo(
-      f"""
-      Q: Quit | W: Sign-out
-      """
-    )
-
-def print_select_menu() -> None:
+    return 'Please choose a menu'
+  
+def footer_menu() -> str:
   r"""
-  메뉴선택 텍스트를 출력한다.
+  footer 메뉴를 반환한다.
   """
-  click.echo('=====================================')
   if config.lang_code == 'ko':
-    click.echo('메뉴 선택')
+    if isAuthenticated():
+      return 'Q: 로그아웃 및 프로그램 종료 | S: 검색'
+    return 'Q: 프로그램 종료 | S: 검색'
   elif config.lang_code == 'en':
-    click.echo('Please choose a menu')
-  click.echo('=====================================')
+    if isAuthenticated():
+      return 'Q: Sign out and Quit | S: Search'
+    return 'Q: Quit | S: Search'
   
 def main_texts() -> list[str]:
   r"""
@@ -56,26 +50,26 @@ def main_texts() -> list[str]:
     
     # 로그인 상태일 경우
     if isAuthenticated():
-      return ['포스트 목록', '언어설정', '프로그램 종료']
+      return ['1. 포스트 목록', '2. 언어설정']
     # 비로그인 상태일 경우
-    return ['로그인', '언어설정', '프로그램 종료']
+    return ['1. 로그인', '2. 언어설정']
       
   elif config.lang_code == 'en':
     
     # 로그인 상태일 경우
     if isAuthenticated():
-      return ['Get the posts', 'Language Settings', 'Quit']
+      return ['1. Get the posts', '2. Language Settings']
     # 비로그인 상태일 경우
-    return ['Sign-in', 'Language Settings', 'Quit']
+    return ['1. Sign-in', '2. Language Settings']
 
 def lang_config_texts() -> list[str]:
   r"""
   언어설정 선택메뉴들을 반환한다.
   """
   if config.lang_code == 'ko':
-    return ['한국어', '영어']
+    return ['1. 한국어', '2. 영어']
   elif config.lang_code == 'en':
-    return ['Korean', 'English']
+    return ['1. Korean', '2. English']
 
 def signin_texts() -> dict[str, str]:
   r"""
@@ -95,14 +89,14 @@ def signin_fail_text() -> str:
   elif config.lang_code == 'en':
     return 'Faild to sign in.'
   
-def list_post_title() -> str:
+def list_post_title(cnt) -> str:
   r"""
   포스트 목록 타이틀을 반환한다.
   """
   if config.lang_code == 'ko':
-    return '포스트 목록'
+    return f'포스트 목록 : 총 {cnt}개'
   elif config.lang_code == 'en':
-    return 'Posts'
+    return f'Total {cnt} Posts'
 
 def post_tmp_text(tmpYn: str) -> str:
   r"""

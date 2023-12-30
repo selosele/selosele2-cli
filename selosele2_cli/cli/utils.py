@@ -1,5 +1,6 @@
 import click
 import selosele2_cli.main as _main
+import selosele2_cli.cli.menu as menu
 import selosele2_cli.cli.config as config
 
 # API BASE URI
@@ -40,6 +41,17 @@ def list_separator() -> str:
   목록 출력 시, 항목 간의 구분자를 반환한다.
   
   :| (파이프)가 아니라 ㅣ (한글)이라는 점에 유의한다.
-  :파이프 사용 시, simple-term-menu 패키지에서 파이프 이슈로 인한 데이터 출력에 문제가 있음.
+  :파이프 사용 시, simple-term-menu 패키지에서 파이프로 인해 데이터 출력에 문제가 있음.
   """
   return 'ㅣ'
+
+def menu_default_options():
+  r"""
+  메뉴 기본 설정 값을 반환한다.
+  """
+  return {
+    'show_search_hint': True,
+    'show_search_hint_text': menu.footer_menu(),
+    'search_key': 's',
+    'search_highlight_style': ['fg_black', 'standout', 'bold']
+  }
