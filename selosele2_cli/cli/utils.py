@@ -38,6 +38,7 @@ def text(text: str, color: str = '') -> str:
 def list_separator() -> str:
   r"""
   목록 출력 시, 항목 간의 구분자를 반환한다.
+  
   :| (파이프)가 아니라 ㅣ (한글)이라는 점에 유의한다.
   :파이프 사용 시, simple-term-menu 패키지에서 파이프 이슈로 인한 데이터 출력에 문제가 있음.
   """

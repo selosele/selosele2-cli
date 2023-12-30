@@ -11,8 +11,8 @@ def signin():
   menu_exited = False
   
   while not menu_exited:
-    user_id = click.prompt(menu.print_signin_text()['user_id'], type=str)
-    user_pw = click.prompt(menu.print_signin_text()['user_pw'], type=str, hide_input=True)
+    user_id = click.prompt(menu.signin_texts()['user_id'], type=str)
+    user_pw = click.prompt(menu.signin_texts()['user_pw'], type=str, hide_input=True)
     data = { 'userId': user_id, 'userPw': user_pw }
     
     # 로그인
@@ -22,7 +22,7 @@ def signin():
       config.refresh_token = response.json()['refreshToken']
       go_to_main()
     else:
-      print(menu.print_signin_fail_text())
+      print(menu.signin_fail_text())
 
 # 로그아웃
 def signout():

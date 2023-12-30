@@ -11,7 +11,7 @@ def main():
   while not menu_exited:
     
     # 메뉴 선택
-    options = menu.print_lang_config()
+    options = menu.lang_config_texts()
     terminal_menu = TerminalMenu(options)
     menu_entry_index = terminal_menu.show()
     

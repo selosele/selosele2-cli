@@ -48,9 +48,9 @@ def print_select_menu() -> None:
     click.echo('Please choose a menu')
   click.echo('=====================================')
   
-def print_main() -> list[str]:
+def main_texts() -> list[str]:
   r"""
-  메인 선택메뉴를 출력한다.
+  메인 선택메뉴들을 반환한다.
   """
   if config.lang_code == 'ko':
     
@@ -68,45 +68,45 @@ def print_main() -> list[str]:
     # 비로그인 상태일 경우
     return ['Sign-in', 'Language Settings', 'Quit']
 
-def print_lang_config() -> list[str]:
+def lang_config_texts() -> list[str]:
   r"""
-  언어설정 선택메뉴를 출력한다.
+  언어설정 선택메뉴들을 반환한다.
   """
   if config.lang_code == 'ko':
     return ['한국어', '영어']
   elif config.lang_code == 'en':
     return ['Korean', 'English']
 
-def print_signin_text() -> dict[str, str]:
+def signin_texts() -> dict[str, str]:
   r"""
-  로그인 메뉴의 아이디, 비밀번호 텍스트를 출력한다.
+  로그인 메뉴의 아이디, 비밀번호 텍스트를 반환한다.
   """
   if config.lang_code == 'ko':
     return { 'user_id': '아이디', 'user_pw': '비밀번호' }
   elif config.lang_code == 'en':
     return { 'user_id': 'ID', 'user_pw': 'Password' }
 
-def print_signin_fail_text() -> str:
+def signin_fail_text() -> str:
   r"""
-  로그인 실패 메시지를 출력한다.
+  로그인 실패 메시지를 반환한다.
   """
   if config.lang_code == 'ko':
     return '로그인에 실패했습니다.'
   elif config.lang_code == 'en':
     return 'Faild to sign in.'
   
-def print_list_post_title() -> str:
+def list_post_title() -> str:
   r"""
-  포스트 목록 타이틀을 출력한다.
+  포스트 목록 타이틀을 반환한다.
   """
   if config.lang_code == 'ko':
     return '포스트 목록'
   elif config.lang_code == 'en':
     return 'Posts'
 
-def print_post_tmp_text(tmpYn: str) -> str:
+def post_tmp_text(tmpYn: str) -> str:
   r"""
-  임시저장 포스트임을 알려주는 텍스트를 출력한다.
+  임시저장 포스트임을 알려주는 텍스트를 반환한다.
   """
   if config.lang_code == 'ko':
     if tmpYn == 'Y':
