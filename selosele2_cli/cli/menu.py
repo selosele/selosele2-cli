@@ -2,8 +2,10 @@ import click
 import selosele2_cli.cli.config as config
 from selosele2_cli.cli.utils import isAuthenticated
 
-# 메인 타이틀을 출력한다.
 def print_main_title() -> None:
+  r"""
+  메인 타이틀을 출력한다.
+  """
   click.echo(
     click.style(
       f"""
@@ -18,8 +20,10 @@ def print_main_title() -> None:
     )
   click.echo('\n')
 
-# footer 메뉴를 출력한다.
 def print_footer() -> None:
+  r"""
+  footer 메뉴를 출력한다.
+  """
   if config.lang_code == 'ko':
     click.echo(
       f"""
@@ -33,8 +37,10 @@ def print_footer() -> None:
       """
     )
 
-# 메뉴선택 문구를 출력한다.
 def print_select_menu() -> None:
+  r"""
+  메뉴선택 문구를 출력한다.
+  """
   click.echo('=====================================')
   if config.lang_code == 'ko':
     click.echo('메뉴 선택')
@@ -42,8 +48,10 @@ def print_select_menu() -> None:
     click.echo('Please choose a menu')
   click.echo('=====================================')
   
-# 메인 선택메뉴를 출력한다.
 def print_main() -> list[str]:
+  r"""
+  메인 선택메뉴를 출력한다.
+  """
   if config.lang_code == 'ko':
     
     # 로그인 상태일 경우
@@ -62,15 +70,19 @@ def print_main() -> list[str]:
     else:
       return ['Sign-in', 'Language Settings', 'Quit']
 
-# 언어설정 선택메뉴를 출력한다.
 def print_lang_config() -> list[str]:
+  r"""
+  언어설정 선택메뉴를 출력한다.
+  """
   if config.lang_code == 'ko':
     return ['한국어', '영어']
   elif config.lang_code == 'en':
     return ['Korean', 'English']
 
-# 로그인 메뉴의 아이디, 비밀번호 텍스트를 출력한다.
 def print_signin_text() -> dict[str, str]:
+  r"""
+  로그인 메뉴의 아이디, 비밀번호 텍스트를 출력한다.
+  """
   if config.lang_code == 'ko':
     return { 'user_id': '아이디', 'user_pw': '비밀번호' }
   elif config.lang_code == 'en':
