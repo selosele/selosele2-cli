@@ -2,7 +2,7 @@ import click
 from simple_term_menu import TerminalMenu
 import selosele2_cli.cli.menu as menu
 import selosele2_cli.cli.signin as signin
-import selosele2_cli.cli.blog_config as blog_config
+import selosele2_cli.cli.lang_config as lang_config
 
 @click.command()
 def main():
@@ -14,7 +14,7 @@ def main():
   while not menu_exited:
     
     # 메뉴 선택
-    options = ['로그인', '환경설정', '프로그램 종료']
+    options = ['로그인', '언어설정', '프로그램 종료']
     terminal_menu = TerminalMenu(options)
     menu_entry_index = terminal_menu.show()
     
@@ -23,9 +23,9 @@ def main():
       signin.main()
       break
     
-    # 환경설정
+    # 언어설정
     if menu_entry_index == 1:
-      blog_config.main()
+      lang_config.main()
       break
     
     # 프로그램 종료
