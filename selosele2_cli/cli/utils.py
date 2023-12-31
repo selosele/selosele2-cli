@@ -63,7 +63,7 @@ def list_separator() -> str:
   """
   return 'ㅣ'
 
-def menu_default_options():
+def menu_default_options() -> dict[str, any]:
   r"""
   메뉴 기본 설정 값을 반환한다.
   """
