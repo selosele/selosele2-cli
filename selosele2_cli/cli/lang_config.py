@@ -21,12 +21,12 @@ def main():
     
     # 한국어
     if menu_entry_index == 0:
-      config.lang_code = 'ko'
+      config.lang_code = "ko"
       go_to_main()
     
     # 영어
     if menu_entry_index == 1:
-      config.lang_code = 'en'
+      config.lang_code = "en"
       go_to_main()
       
     break
