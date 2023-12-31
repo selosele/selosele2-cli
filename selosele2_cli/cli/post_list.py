@@ -38,10 +38,11 @@ def main():
         **menu_default_options()
       )
       menu_entry_index = terminal_menu.show()
-      post_id = posts[menu_entry_index].split(list_separator())[0]
+      post_id = str(posts[menu_entry_index]).split(list_separator())[0].strip()
+      click.clear()
       
       # 포스트 상세 조회
-      post_view.main(post_id)
+      post_view.main([post_id])
       break
     
     # 액세스 토큰 갱신 (공통로직으로 분리 예정)

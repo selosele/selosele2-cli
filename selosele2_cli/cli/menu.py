@@ -110,3 +110,12 @@ def post_tmp_text(tmpYn: str) -> str:
     if tmpYn == "Y":
       return " [temporary] "
     return ""
+
+def post_reg_date_text() -> str:
+  r"""
+  포스트의 등록일자 텍스트를 반환한다.
+  """
+  if config.lang_code == "ko":
+    return "등록일자:"
+  elif config.lang_code == "en":
+    return "Date:"
