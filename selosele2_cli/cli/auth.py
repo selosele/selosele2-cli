@@ -1,9 +1,10 @@
 import click
 import requests
-import selosele2_cli.cli.config as config
 import selosele2_cli.cli.menu as menu
 from selosele2_cli.cli.utils import uri
 from selosele2_cli.cli.utils import go_to_main
+from selosele2_cli.cli.utils import set_access_token
+from selosele2_cli.cli.utils import set_refresh_token
 
 # 로그인
 @click.command()
@@ -18,8 +19,8 @@ def signin():
     # 로그인
     response = requests.post(uri('/auth/signin'), data=data)
     if response.status_code == 201:
-      config.access_token = response.json()['accessToken']
-      config.refresh_token = response.json()['refreshToken']
+      set_access_token(response.json()['accessToken'])
+      set_refresh_token(response.json()['refreshToken'])
       click.clear()
       go_to_main()
     else:
@@ -27,5 +28,5 @@ def signin():
 
 # 로그아웃
 def signout():
-  config.access_token = ''
-  config.refresh_token = ''
+  set_access_token('')
+  set_refresh_token('')
