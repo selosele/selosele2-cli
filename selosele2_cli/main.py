@@ -1,7 +1,7 @@
 import click
 import selosele2_cli.cli.menu as menu
 import selosele2_cli.cli.auth as auth
-import selosele2_cli.cli.list_post as list_post
+import selosele2_cli.cli.post_list as post_list
 import selosele2_cli.cli.lang_config as lang_config
 import selosele2_cli.cli.config as config
 from simple_term_menu import TerminalMenu
@@ -31,7 +31,7 @@ def main():
       
       # 로그인이 되어 있으면 포스트 목록 화면을 출력하고
       if isAuthenticated():
-        list_post.main()
+        post_list.main()
       # 안 되어 있으면 로그인 화면을 출력한다.
       else:
         auth.signin()
