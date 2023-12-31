@@ -53,5 +53,5 @@ def menu_default_options():
     'show_search_hint': True,
     'show_search_hint_text': menu.footer_menu(),
     'search_key': 's',
-    'search_highlight_style': ['fg_black', 'standout', 'bold']
+    'search_highlight_style': ['bg_yellow', 'fg_black', 'bold']
   }
