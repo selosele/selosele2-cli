@@ -14,33 +14,27 @@ def main():
     menu.print_main_title()
     config.main_title_printed = True
     
-  menu_exited = False
+  # 메뉴 선택
+  terminal_menu = TerminalMenu(
+    menu.main_texts(),
+    title=menu.choose_menu_text(),
+    **menu_default_options()
+  )
+  menu_index = terminal_menu.show()
   
-  while not menu_exited:
+  # 로그인 or 포스트 목록
+  if menu_index == 0:
     
-    # 메뉴 선택
-    terminal_menu = TerminalMenu(
-      menu.main_texts(),
-      title=menu.choose_menu_text(),
-      **menu_default_options()
-    )
-    menu_entry_index = terminal_menu.show()
-    
-    # 로그인 or 포스트 목록
-    if menu_entry_index == 0:
-      
-      # 로그인이 되어 있으면 포스트 목록 화면을 출력하고
-      if isAuthenticated():
-        post_list.main()
-      # 안 되어 있으면 로그인 화면을 출력한다.
-      else:
-        auth.signin()
-    
-    # 언어설정
-    if menu_entry_index == 1:
-      lang_config.main()
-      
-    break
+    # 로그인이 되어 있으면 포스트 목록 화면을 출력하고
+    if isAuthenticated():
+      post_list.main()
+    # 안 되어 있으면 로그인 화면을 출력한다.
+    else:
+      auth.signin()
+  
+  # 언어설정
+  if menu_index == 1:
+    lang_config.main()
 
 if __name__ == "__main__":
   main()

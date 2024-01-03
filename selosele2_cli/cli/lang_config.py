@@ -7,26 +7,21 @@ from selosele2_cli.cli.utils import menu_default_options
 
 @click.command()
 def main():
-  menu_exited = False
   
-  while not menu_exited:
-    
-    # 메뉴 선택
-    terminal_menu = TerminalMenu(
-      menu.lang_config_texts(),
-      title=menu.choose_menu_text(),
-      **menu_default_options()
-    )
-    menu_entry_index = terminal_menu.show()
-    
-    # 한국어
-    if menu_entry_index == 0:
-      config.lang_code = "ko"
-      go_to_main()
-    
-    # 영어
-    if menu_entry_index == 1:
-      config.lang_code = "en"
-      go_to_main()
-      
-    break
+  # 메뉴 선택
+  terminal_menu = TerminalMenu(
+    menu.lang_config_texts(),
+    title=menu.choose_menu_text(),
+    **menu_default_options()
+  )
+  menu_index = terminal_menu.show()
+  
+  # 한국어
+  if menu_index == 0:
+    config.lang_code = "ko"
+    go_to_main()
+  
+  # 영어
+  if menu_index == 1:
+    config.lang_code = "en"
+    go_to_main()

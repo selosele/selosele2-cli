@@ -20,7 +20,7 @@ def headers() -> dict[str, str]:
 
 def isAuthenticated() -> bool:
   r"""
-  로그인이 되어 있으면 True를, 안 되어 있으면 False를 반환한다.
+  로그인 여부를 반환한다.
   """
   return get_access_token() != ""
 
@@ -47,12 +47,6 @@ def go_to_main() -> None:
   메인 화면으로 돌아간다.
   """
   _main.main()
-
-def text(text: str, color: str = "") -> str:
-  r"""
-  click.style 텍스트와 색상을 완성하여 반환한다.
-  """
-  return click.style(text, fg=color)
 
 def list_separator() -> str:
   r"""
