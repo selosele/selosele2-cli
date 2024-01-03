@@ -10,7 +10,6 @@ python = "^3.10"
 requests = "^2.31.0"
 click = "^8.1.7"
 simple-term-menu = "^1.6.4"
-beautifulsoup4 = "^4.12.2"
 
 [tool.poetry.scripts]
 start = "selosele2_cli.main:main"
