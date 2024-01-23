@@ -1,6 +1,6 @@
 import click
 import selosele2_cli.cli.config as config
-from selosele2_cli.cli.utils import isAuthenticated
+from selosele2_cli.cli.utils import is_authenticated
 
 def print_main_title() -> None:
   r"""
@@ -34,11 +34,11 @@ def footer_menu() -> str:
   footer 메뉴를 반환한다.
   """
   if config.lang_code == "ko":
-    if isAuthenticated():
+    if is_authenticated():
       return "Q: 로그아웃 및 프로그램 종료 | S: 검색"
     return "Q: 프로그램 종료 | S: 검색"
   elif config.lang_code == "en":
-    if isAuthenticated():
+    if is_authenticated():
       return "Q: Sign out and Quit | S: Search"
     return "Q: Quit | S: Search"
   
@@ -49,7 +49,7 @@ def main_texts() -> list[str]:
   if config.lang_code == "ko":
     
     # 로그인 상태일 경우
-    if isAuthenticated():
+    if is_authenticated():
       return ["1. 포스트 목록", "2. 언어설정"]
     # 비로그인 상태일 경우
     return ["1. 로그인", "2. 언어설정"]
@@ -57,7 +57,7 @@ def main_texts() -> list[str]:
   elif config.lang_code == "en":
     
     # 로그인 상태일 경우
-    if isAuthenticated():
+    if is_authenticated():
       return ["1. Get the posts", "2. Language Settings"]
     # 비로그인 상태일 경우
     return ["1. Sign-in", "2. Language Settings"]

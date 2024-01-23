@@ -1,4 +1,3 @@
-import click
 import selosele2_cli.main as _main
 import selosele2_cli.cli.menu as menu
 import selosele2_cli.cli.config as config
@@ -18,7 +17,7 @@ def headers() -> dict[str, str]:
   """
   return { "Authorization": f"Bearer {get_access_token()}" }
 
-def isAuthenticated() -> bool:
+def is_authenticated() -> bool:
   r"""
   로그인 여부를 반환한다.
   """
