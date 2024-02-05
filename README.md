@@ -16,3 +16,7 @@
 
 1. `poetry shell`
 2. `poetry run start`
+
+## 실행파일 생성 명령
+
+`pyinstaller -F selosele2_cli/main.py`
