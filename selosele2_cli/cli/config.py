@@ -1,4 +1,4 @@
-#-*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 
 # 언어 설정 코드
 # ko: 한국어, en: 영어
