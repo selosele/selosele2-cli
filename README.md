@@ -1,6 +1,6 @@
 # selosele2-cli
 
-[2022 개인 블로그](https://github.com/selosele/selosele2-backend)의 CLI 클라이언트 애플리케이션
+[2022 개인 블로그](https://github.com/selosele/selosele2-backend)의 CLI 클라이언트
 
 ## 작업기간
 
