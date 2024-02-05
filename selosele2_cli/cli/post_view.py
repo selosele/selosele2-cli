@@ -1,8 +1,11 @@
 import click
 import requests
 import selosele2_cli.cli.menu as menu
+import selosele2_cli.cli.post_list as post_list
 from selosele2_cli.cli.utils import uri
 from selosele2_cli.cli.utils import headers
+from selosele2_cli.cli.utils import menu_default_options
+from simple_term_menu import TerminalMenu
 from datetime import datetime
 
 @click.group()
@@ -24,4 +27,16 @@ def main(post_id: list[str]):
   click.echo(f"{menu.post_reg_date_text()} {reg_date}")
   click.echo("======================================================================")
   click.echo(post["rawText"])
+  
+  # 메뉴 선택
+  terminal_menu = TerminalMenu(
+    ["목록으로 돌아가기"],
+    title="",
+    **menu_default_options()
+  )
+  menu_index = terminal_menu.show()
+  
+  # 목록으로 돌아가기
+  if menu_index == 0:
+    post_list.main()
   
