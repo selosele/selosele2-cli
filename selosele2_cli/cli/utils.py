@@ -3,7 +3,8 @@ import selosele2_cli.cli.menu as menu
 import selosele2_cli.cli.config as config
 
 # API BASE URI
-API_BASE_URI = "http://localhost:3000/api"
+#API_BASE_URI = "http://localhost:3000/api"
+API_BASE_URI = "https://blog.selosele.com/api"
 
 def uri(url: str) -> str:
   r"""
