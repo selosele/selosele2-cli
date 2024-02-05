@@ -1,5 +1,3 @@
-import selosele2_cli.main as _main
-import selosele2_cli.cli.menu as menu
 import selosele2_cli.cli.config as config
 
 # API BASE URI
@@ -34,6 +32,7 @@ def go_to_main() -> None:
   r"""
   메인 화면으로 돌아간다.
   """
+  import selosele2_cli.main as _main
   _main.main()
 
 def list_separator() -> str:
@@ -49,6 +48,7 @@ def menu_default_options() -> dict[str, any]:
   r"""
   메뉴 기본 설정 값을 반환한다.
   """
+  import selosele2_cli.cli.menu as menu
   return {
     "show_search_hint": True,
     "show_search_hint_text": menu.footer_menu(),

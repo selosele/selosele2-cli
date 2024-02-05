@@ -4,8 +4,8 @@ import selosele2_cli.cli.auth as auth
 import selosele2_cli.cli.post_list as post_list
 import selosele2_cli.cli.lang_config as lang_config
 import selosele2_cli.cli.config as config
-from simple_term_menu import TerminalMenu
 from selosele2_cli.cli.utils import menu_default_options
+from simple_term_menu import TerminalMenu
 
 @click.command()
 def main():
