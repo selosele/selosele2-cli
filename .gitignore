@@ -9,6 +9,7 @@ build
 _build
 .cache
 *.so
+*.spec
 
 # Installer logs
 pip-log.txt
