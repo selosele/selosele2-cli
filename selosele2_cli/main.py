@@ -1,4 +1,4 @@
-#-*- coding: utf-8 -*-"
+#-*- coding: utf-8 -*-
 
 import click
 import selosele2_cli.cli.menu as menu
