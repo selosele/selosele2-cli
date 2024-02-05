@@ -1,3 +1,5 @@
+#-*- coding: utf-8 -*-"
+
 import click
 import selosele2_cli.cli.config as config
 import selosele2_cli.cli.menu as menu

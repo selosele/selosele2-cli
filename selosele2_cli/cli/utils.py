@@ -1,3 +1,5 @@
+#-*- coding: utf-8 -*-"
+
 import selosele2_cli.cli.config as config
 
 # API BASE URI

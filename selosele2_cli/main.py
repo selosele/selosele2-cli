@@ -1,3 +1,5 @@
+#-*- coding: utf-8 -*-"
+
 import click
 import selosele2_cli.cli.menu as menu
 import selosele2_cli.cli.auth as auth
