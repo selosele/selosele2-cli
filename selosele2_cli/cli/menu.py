@@ -34,12 +34,8 @@ def footer_menu() -> str:
   footer 메뉴를 반환한다.
   """
   if config.lang_code == "ko":
-    if is_authenticated():
-      return "Q: 로그아웃 및 프로그램 종료 | S: 검색"
     return "Q: 프로그램 종료 | S: 검색"
   elif config.lang_code == "en":
-    if is_authenticated():
-      return "Q: Sign out and Quit | S: Search"
     return "Q: Quit | S: Search"
   
 def main_texts() -> list[str]:
