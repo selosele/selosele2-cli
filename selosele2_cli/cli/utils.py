@@ -16,19 +16,7 @@ def headers() -> dict[str, str]:
   r"""
   API 호출에 필요한 header를 반환한다.
   """
-  return { "Authorization": f"Bearer {get_access_token()}" }
-
-def is_authenticated() -> bool:
-  r"""
-  로그인 여부를 반환한다.
-  """
-  return get_access_token() != ""
-
-def get_access_token() -> str:
-  r"""
-  액세스 토큰을 반환한다.
-  """
-  return config.access_token
+  return { "Authorization": f"Bearer {config.access_token}" }
 
 def set_access_token(access_token: str) -> None:
   r"""

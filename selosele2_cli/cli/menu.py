@@ -1,6 +1,5 @@
 import click
 import selosele2_cli.cli.config as config
-from selosele2_cli.cli.utils import is_authenticated
 
 def print_main_title() -> None:
   r"""
@@ -45,7 +44,7 @@ def main_texts() -> list[str]:
   if config.lang_code == "ko":
     
     # 로그인 상태일 경우
-    if is_authenticated():
+    if config.access_token != "":
       return ["1. 포스트 목록", "2. 언어설정"]
     # 비로그인 상태일 경우
     return ["1. 로그인", "2. 언어설정"]
@@ -53,7 +52,7 @@ def main_texts() -> list[str]:
   elif config.lang_code == "en":
     
     # 로그인 상태일 경우
-    if is_authenticated():
+    if config.access_token != "":
       return ["1. Get the posts", "2. Language Settings"]
     # 비로그인 상태일 경우
     return ["1. Sign-in", "2. Language Settings"]

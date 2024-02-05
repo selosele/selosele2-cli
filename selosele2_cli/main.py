@@ -5,7 +5,6 @@ import selosele2_cli.cli.post_list as post_list
 import selosele2_cli.cli.lang_config as lang_config
 import selosele2_cli.cli.config as config
 from simple_term_menu import TerminalMenu
-from selosele2_cli.cli.utils import is_authenticated
 from selosele2_cli.cli.utils import menu_default_options
 
 @click.command()
@@ -26,7 +25,7 @@ def main():
   if menu_index == 0:
     
     # 로그인이 되어 있으면 포스트 목록 화면을 출력하고
-    if is_authenticated():
+    if config.access_token != "":
       post_list.main()
     # 안 되어 있으면 로그인 화면을 출력한다.
     else:
